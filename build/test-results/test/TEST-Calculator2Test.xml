@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Calculator2Test" tests="10" skipped="0" failures="0" errors="0" timestamp="2023-02-07T05:05:15" hostname="appledeMacBook-Air-2.local" time="0.02">
+  <properties/>
+  <testcase name="whenDivide9By3ThenResult3" classname="Calculator2Test" time="0.01"/>
+  <testcase name="whenDivide100By10ThenResult10" classname="Calculator2Test" time="0.001"/>
+  <testcase name="whenInputIncorrectValueThenThrowException" classname="Calculator2Test" time="0.001"/>
+  <testcase name="when3MultipleBy3ThenResult9" classname="Calculator2Test" time="0.001"/>
+  <testcase name="whenDivideIncorrectValueThenThrowException" classname="Calculator2Test" time="0.001"/>
+  <testcase name="whenDivide6By3AsStringThenResult2" classname="Calculator2Test" time="0.0"/>
+  <testcase name="whenAdd100To50ThenResult150" classname="Calculator2Test" time="0.0"/>
+  <testcase name="whenAdd10To5ThenResult15" classname="Calculator2Test" time="0.0"/>
+  <testcase name="when5MultipleBy10ThenResult50" classname="Calculator2Test" time="0.0"/>
+  <testcase name="when5AddTo10AsStringThenResult15" classname="Calculator2Test" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
