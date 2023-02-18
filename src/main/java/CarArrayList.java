@@ -4,21 +4,41 @@ public class CarArrayList implements CarList {
 
     private Car [] array = new Car[10];
     private int size = 0;
+
+    //O(N) - dependent on size of collection
+    // time for execution dependents on size
+    @Override
+    public void add(Car car, int index) {
+
+        increaseArray();
+
+        if (index < 0 || index > size){
+            throw new IndexOutOfBoundsException();
+        }
+
+        //arraycopy - take array whole part not with every single part
+        System.arraycopy(array,index ,array , index + 1, size - index);
+
+        array[index] = car;
+        size++;
+    }
+
+    // O(1) - will execute for constant time
+    // and independent on size of collection
     @Override
     public Car get(int index) {
         checkIndex(index);
         return array[index];
     }
 
+    //O(1)
     @Override
     public void add(Car car) {
-        if (size >= array.length){
-            array = Arrays.copyOf(array, array.length * 2);
-        }
+        increaseArray();
         array[size] = car;
         size++;
     }
-
+    //O(N)
     @Override
     public boolean remove(Car car) {
         for (int i = 0; i < size; i++){
@@ -27,13 +47,12 @@ public class CarArrayList implements CarList {
         }
         return false;
     }
-
+    //O(N)
     @Override
     public boolean removeAt(int index) {
         checkIndex(index);
-        for (int i = index; i < size - 1 ; i++){
-            array[i] = array[i+1];
-        }
+
+        System.arraycopy(array, index + 1 , array, index , size - 1 - index );
         size--;
         return true;
     }
@@ -54,4 +73,18 @@ public class CarArrayList implements CarList {
             throw new IndexOutOfBoundsException();
         }
     }
+
+    private void increaseArray(){
+        if (size >= array.length){
+            array = Arrays.copyOf(array, array.length * 2);
+        }
+    }
+
+
 }
+
+// Getting element by index - O(1) +(advantage)
+// Adding element at the end of list - O(1) +(advantage)
+// Removing element - O(N) -(disadvantage)
+// Adding element in the middle or in the hea(disadvantage)d of list - O(N) -(disadvantage)
+// Size of array can not decrease , and this take memory -(disadvantage)
