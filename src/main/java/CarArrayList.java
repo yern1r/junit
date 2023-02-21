@@ -87,4 +87,4 @@ public class CarArrayList implements CarList {
 // Adding element at the end of list - O(1) +(advantage)
 // Removing element - O(N) -(disadvantage)
 // Adding element in the middle or in the hea(disadvantage)d of list - O(N) -(disadvantage)
-// Size of array can not decrease , and this take memory -(disadvantage)
+// Size of array can not decrease automatically , and this take memory -(disadvantage)

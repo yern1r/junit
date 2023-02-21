@@ -12,7 +12,7 @@ public class CarListTest {
 
     @Before
     public void setUp() throws Exception {
-        carlist = new CarArrayList();
+        carlist = new CarLinkedList();
 
         for (int i = 0; i < 100 ; i++){
             carlist.add(new Car("Brand" + i, i));
