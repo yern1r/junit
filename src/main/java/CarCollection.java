@@ -3,4 +3,6 @@ public interface CarCollection {
     boolean remove(Car car);
     int size();
     void clear();
+
+    boolean contains(Car car);
 }

@@ -8,7 +8,7 @@ public class CarArrayList implements CarList {
     //O(N) - dependent on size of collection
     // time for execution dependents on size
     @Override
-    public void add(Car car, int index) {
+    public boolean add(Car car, int index) {
 
         increaseArray();
 
@@ -21,6 +21,7 @@ public class CarArrayList implements CarList {
 
         array[index] = car;
         size++;
+        return true;
     }
 
     // O(1) - will execute for constant time
@@ -33,10 +34,11 @@ public class CarArrayList implements CarList {
 
     //O(1)
     @Override
-    public void add(Car car) {
+    public boolean add(Car car) {
         increaseArray();
         array[size] = car;
         size++;
+        return true;
     }
     //O(N)
     @Override
@@ -47,6 +49,16 @@ public class CarArrayList implements CarList {
         }
         return false;
     }
+
+    @Override
+    public boolean contains(Car car) {
+        for (int i = 0; i < size; i++){
+            if (array[i].equals(car))
+                return true;
+        }
+        return false;
+    }
+
     //O(N)
     @Override
     public boolean removeAt(int index) {
@@ -79,6 +91,7 @@ public class CarArrayList implements CarList {
             array = Arrays.copyOf(array, array.length * 2);
         }
     }
+
 
 
 }
