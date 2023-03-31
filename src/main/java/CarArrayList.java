@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Iterator;
 
 public class CarArrayList implements CarList {
 
@@ -92,8 +93,22 @@ public class CarArrayList implements CarList {
         }
     }
 
+    @Override
+    public Iterator<Car> iterator() {
+        return new Iterator<Car>() {
 
+            int index = 0;
+            @Override
+            public boolean hasNext() {
+                 return index < size;
+            }
 
+            @Override
+            public Car next() {
+                return array[index++];
+            }
+        };
+    }
 }
 
 // Getting element by index - O(1) +(advantage)
