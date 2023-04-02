@@ -1,6 +1,6 @@
 import java.util.Objects;
 
-public class Car {
+public class Car /*implements Comparable<Car>*/ {
 
     private String brand;
     private int number;
@@ -47,4 +47,28 @@ public class Car {
     // а не реализации
     // сначала интерфейс - объявить все методы
     //потом уже реализация
+
+
+    //if there is no access
+    @Override
+    public String toString() {
+        return "Car{" +
+                "brand='" + brand + '\'' +
+                ", number=" + number +
+                '}';
+    }
+
+    /*@Override
+    public int compareTo(Car o) {
+        if (number < o.number){
+            return -1;
+        }else if (number > o.number){
+            return 1;
+        }else {
+            return 0;
+        }
+
+        //return brand.compareTo(o.brand);
+
+    }*/
 }
