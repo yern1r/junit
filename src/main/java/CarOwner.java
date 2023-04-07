@@ -43,6 +43,8 @@ public class CarOwner {
         return id == carOwner.id && Objects.equals(name, carOwner.name) && Objects.equals(lastName, carOwner.lastName);
     }
 
+    //if there is  object which can be changed in parameters , and some field is changed
+    // which hash-code depends on then element can be lost in collection
     @Override
     public int hashCode() {
         return Objects.hash(id, name, lastName);
