@@ -6,7 +6,7 @@
 
 import java.util.Iterator;
 
-public class CarLinkedList implements CarList , CarQueue{
+public class CarLinkedList<T> implements CarList<T> , CarQueue<T>{
 
     //Links
     private Node first;
@@ -14,13 +14,13 @@ public class CarLinkedList implements CarList , CarQueue{
     private int size = 0;
 
     @Override
-    public Car get(int index) {
+    public T get(int index) {
 
         return getNode(index).value;
     }
 
     @Override
-    public boolean add(Car car) {
+    public boolean add(T car) {
         if(size == 0){
             Node node = new Node(null, car , null);
             first = node;
@@ -35,19 +35,19 @@ public class CarLinkedList implements CarList , CarQueue{
     }
 
     @Override
-    public Car peek() {
+    public T peek() {
         return size > 0 ? get(0) : null;
     }
 
     @Override
-    public Car poll() {
-        Car car = get(0);
+    public T poll() {
+        T car = get(0);
         removeAt(0);
         return car;
     }
 
     @Override
-    public boolean add(Car car, int index) {
+    public boolean add(T car, int index) {
         if(index < 0 || index > size){
             throw new IndexOutOfBoundsException();
         }
@@ -69,7 +69,7 @@ public class CarLinkedList implements CarList , CarQueue{
     }
 
     @Override
-    public boolean remove(Car car) {
+    public boolean remove(T car) {
         int index = findElement(car);
         if (index != -1){
             return removeAt(index);
@@ -78,7 +78,7 @@ public class CarLinkedList implements CarList , CarQueue{
     }
 
     @Override
-    public boolean contains(Car car) {
+    public boolean contains(T car) {
         return findElement(car) != -1;
 
     }
@@ -128,7 +128,7 @@ public class CarLinkedList implements CarList , CarQueue{
         return node;
     }
 
-    private int findElement(Car car){
+    private int findElement(T car){
         Node node = first;
         for (int i =0; i < size; i++){
             if (node.value.equals(car)){
@@ -142,13 +142,13 @@ public class CarLinkedList implements CarList , CarQueue{
     //static related to the class not to object
     //class does not use method or variables of instance - it is static
 
-    private static class Node {
+    private  class Node {
 
         private Node previous;
-        private Car value;
+        private T value;
         private Node next;
 
-        public Node(Node previous, Car value, Node next) {
+        public Node(Node previous, T value, Node next) {
             this.previous = previous;
             this.value = value;
             this.next = next;
@@ -156,8 +156,8 @@ public class CarLinkedList implements CarList , CarQueue{
     }
 
     @Override
-    public Iterator<Car> iterator() {
-        return new Iterator<Car>() {
+    public Iterator<T> iterator() {
+        return new Iterator<T>() {
           private Node node = first;
             @Override
             public boolean hasNext() {
@@ -165,8 +165,8 @@ public class CarLinkedList implements CarList , CarQueue{
             }
 
             @Override
-            public Car next() {
-                Car car = node.value;
+            public T next() {
+                T car = node.value;
                 node = node.next;
                 return car;
             }

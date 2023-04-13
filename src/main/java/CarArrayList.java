@@ -1,15 +1,19 @@
 import java.util.Arrays;
 import java.util.Iterator;
 
-public class CarArrayList implements CarList {
+public class CarArrayList<T> implements CarList<T> {
 
-    private Car [] array = new Car[10];
+
+    //Generics work with only linked type
+    //In generics we cannot creat array with generic type
+    //We can not crate a new object by new in generic type
+    private Object [] array = new Object[10];
     private int size = 0;
 
     //O(N) - dependent on size of collection
     // time for execution dependents on size
     @Override
-    public boolean add(Car car, int index) {
+    public boolean add(T car, int index) {
 
         increaseArray();
 
@@ -28,14 +32,14 @@ public class CarArrayList implements CarList {
     // O(1) - will execute for constant time
     // and independent on size of collection
     @Override
-    public Car get(int index) {
+    public T get(int index) {
         checkIndex(index);
-        return array[index];
+        return (T) array[index];
     }
 
     //O(1)
     @Override
-    public boolean add(Car car) {
+    public boolean add(T car) {
         increaseArray();
         array[size] = car;
         size++;
@@ -43,7 +47,7 @@ public class CarArrayList implements CarList {
     }
     //O(N)
     @Override
-    public boolean remove(Car car) {
+    public boolean remove(T car) {
         for (int i = 0; i < size; i++){
             if (array[i].equals(car))
                 return removeAt(i);
@@ -52,7 +56,7 @@ public class CarArrayList implements CarList {
     }
 
     @Override
-    public boolean contains(Car car) {
+    public boolean contains(T car) {
         for (int i = 0; i < size; i++){
             if (array[i].equals(car))
                 return true;
@@ -77,7 +81,7 @@ public class CarArrayList implements CarList {
 
     @Override
     public void clear() {
-        array = new Car[10];
+        array = new Object[10];
         size = 0;
     }
 
@@ -94,8 +98,8 @@ public class CarArrayList implements CarList {
     }
 
     @Override
-    public Iterator<Car> iterator() {
-        return new Iterator<Car>() {
+    public Iterator<T> iterator() {
+        return new Iterator<T>() {
 
             int index = 0;
             @Override
@@ -104,8 +108,8 @@ public class CarArrayList implements CarList {
             }
 
             @Override
-            public Car next() {
-                return array[index++];
+            public T next() {
+                return (T)array[index++];
             }
         };
     }

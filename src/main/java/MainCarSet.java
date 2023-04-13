@@ -1,11 +1,6 @@
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-
-
 public class MainCarSet {
     public static void main(String[] args) {
-        CarCollection cars = new CarArrayList();
+        CarCollection<Car> cars = new CarArrayList<>();
         for (int i = 0 ; i < 10; i++ ){
             cars.add(new Car("Brand"  + i, i));
         }

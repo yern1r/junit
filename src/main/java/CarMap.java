@@ -6,16 +6,16 @@ import java.util.Set;
 //HashSet and Hash map elements has no order
 //TreeSet and TreeMap has sorted order
 //LinkedHashSet and LinkedHashMap elements have stable order as in the begging
-public interface CarMap {
-    void put(CarOwner key , Car value);
+public interface CarMap<K,V> {
+    void put(K key , V value);
 
-    Car get(CarOwner key);
+    V get(K key);
 
-    Set<CarOwner> keySet();
+    Set<K> keySet();
 
-    List<Car> values();
+    List<V> values();
 
-    boolean remove(CarOwner key);
+    boolean remove(K key);
 
     int size();
 

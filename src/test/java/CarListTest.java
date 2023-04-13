@@ -8,11 +8,11 @@ import static org.junit.Assert.*;
 
 public class CarListTest {
 
-    private CarList carlist;
+    private CarList<Car> carlist;
 
     @Before
     public void setUp() throws Exception {
-        carlist = new CarLinkedList();
+        carlist = new CarLinkedList<>();
 
         for (int i = 0; i < 100 ; i++){
             carlist.add(new Car("Brand" + i, i));

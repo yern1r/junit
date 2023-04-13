@@ -1,5 +1,5 @@
 import java.util.Objects;
-
+//Car class
 public class Car /*implements Comparable<Car>*/ {
 
     private String brand;
