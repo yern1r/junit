@@ -1,3 +1,4 @@
+import javax.swing.event.ListDataListener;
 import java.io.Serializable;
 import java.util.List;
 
@@ -39,6 +40,21 @@ public class GenericBox<T extends Number & Comparable<T> & Serializable> {
 
     }
 
+    //we show that this method is parametered <U>
+    //return type of method is U
+    public static <U> U getFirstElement(List<U> list){
+        return  list.get(0);
+    }
+
+    //extends U - либо тип U либо наследники тип U
+    //for ex: Number : type of Number or Integer/Float/Double
+
+    //super U - либо тип U либо родиелем тип U
+    //for ex: Number : type of Number or Object(parent)
+    public static <U> void transfer(List<? extends U> src , List<? super U> dst){
+        dst.addAll(src);
+        src.clear();
+    }
     public void setArray(T[] array) {
         this.array = array;
     }

@@ -22,4 +22,16 @@ public class GenericBoxTest {
         GenericBox.method(numbers);
     }
 
+    @Test
+    public void testTransfer(){
+        List<Integer> numberList = new ArrayList<>();
+        for(int i = 0; i < 10; i++){
+            numberList.add(i);
+        }
+        List<Integer> numberListTransfered = new ArrayList<>();
+        GenericBox.transfer(numberList,numberListTransfered);
+        assertEquals(0,numberList.size());
+        assertEquals(10,numberListTransfered.size());
+    }
+
 }
